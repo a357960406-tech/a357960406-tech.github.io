@@ -1,0 +1,26 @@
+@import url('v17.css');
+.hero-actions .button.glass{background:rgb(255 255 255 / .04)}
+.hero-actions .button.glass:is(:hover,:focus-visible){background:rgb(255 255 255 / .44);border-color:rgb(255 255 255 / .7)}
+.trail-photo,.trail-photo.landscape{width:264px;height:396px}
+.horizontal-works{height:520svh;min-height:3744px}
+.horizontal-works .work-slot:first-child .work-image>img{
+ inset:auto;left:-4%;top:-12px;width:108%;height:calc(100% + 24px);object-position:50% 0%;transform-origin:center top;
+ transform:translate3d(calc(var(--pan-x,0px) * var(--tilt-strength)),calc(var(--pan-y,0px) * var(--tilt-strength) * .45),0) scale(1.01)
+}
+.flip-scene{display:block;position:absolute;inset:0;transform-style:preserve-3d;transform:translateZ(var(--flip-z,0px)) rotateX(var(--flip-x,0deg)) rotateY(var(--flip-y,0deg)) rotateZ(var(--flip-roll,0deg));will-change:transform}
+.flip-face{display:block;position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--card-radius,22px)}
+.flip-front{transform:rotateY(0deg)}
+.flip-back{transform:rotateY(180deg);background:#11141b;overflow:hidden}
+.flip-face .work-image{inset:0;border-radius:inherit}
+.depth-window{position:absolute;inset:0;display:block;overflow:hidden;border-radius:inherit;perspective:1200px;perspective-origin:58% 48%;background:#11141b}
+.depth-photo{position:absolute;inset:-3%;width:106%;height:106%;max-width:none;object-fit:cover;object-position:50% 64%;transform:translate3d(0,var(--scene-y,0px),var(--scene-z,520px));transform-origin:center;will-change:transform}
+.depth-shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#060b164d,transparent 58%),linear-gradient(transparent 35%,#0408128c)}
+.horizontal-works .work-slot:last-child .work-card{transition:none}
+.horizontal-works .work-slot:last-child .work-card .final-copy{color:white;text-shadow:0 3px 35px #000c}
+.horizontal-works .work-slot:last-child .work-card .work-top,.horizontal-works .work-slot:last-child .work-card .work-bottom{pointer-events:none}
+@media(prefers-reduced-motion:reduce){
+ .horizontal-works{height:auto;min-height:0}
+ .flip-scene{transform:none;transform-style:flat;will-change:auto}
+ .flip-back{display:none}.depth-photo{transform:none;will-change:auto}
+ .horizontal-works .work-slot:first-child .work-image>img{transform:none}
+}

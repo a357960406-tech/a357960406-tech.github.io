@@ -1,0 +1,55 @@
+(()=>{
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),lerp=(a,b,t)=>a+(b-a)*t,ease=v=>{const t=clamp(v);return t*t*(3-2*t);};
+  const hero=document.querySelector('.hero'),works=document.querySelector('.works'),slots=[...document.querySelectorAll('.work-slot')],rows=[...document.querySelectorAll('.journey-row')],cinema=document.querySelector('.cinematic'),mood=document.querySelector('.moodboard');
+  let raf=0,smooth=scrollY,target=scrollY,pointer=0,mouse=0,bounds={};
+  const layers=[...document.querySelectorAll('main>section')];
+  const box=e=>{let top=0,n=e;while(n){top+=n.offsetTop;n=n.offsetParent;}return {top,height:e.offsetHeight};};
+  let layerBounds=[];
+  const layerScroll=e=>smooth+clamp(box(e).top-smooth,0,innerHeight);
+  layers.forEach((el,i)=>{el.classList.add('page-layer');el.style.zIndex=String(layers.length-i);});
+  function measure(){layerBounds=layers.map(box);bounds={hero:box(hero),works:box(works),slots:slots.map(box),rows:rows.map(box),cinema:box(cinema),mood:box(mood)};smooth=target=scrollY;schedule();}
+  function schedule(){if(!raf&&!document.hidden)raf=requestAnimationFrame(tick);}
+  function paint(){
+    const h=innerHeight,quiet=reduced.matches,p=clamp(smooth/bounds.hero.height);
+    layers.forEach((el,i)=>{const b=layerBounds[i],shift=quiet?0:-clamp(b.top-smooth,0,h);el.style.setProperty('--layer-y',`${shift}px`);el.dataset.layerShift=String(shift);const exit=clamp((smooth+h-b.top-b.height)/h);el.style.setProperty('--layer-radius',`${quiet?0:exit*34}px`);});
+    const ws=quiet?smooth:layerScroll(works),js=quiet?smooth:layerScroll(document.querySelector('.journey')),cs=quiet?smooth:layerScroll(cinema),ms=quiet?smooth:layerScroll(mood);
+    hero.style.setProperty('--hero-copy-y',`${quiet?0:smooth*.28}px`);hero.style.setProperty('--hero-copy-opacity',String(quiet?1:1-ease((p-.23)/.65)));
+    hero.style.setProperty('--arc-y',`${quiet?0:smooth*.10}px`);hero.style.setProperty('--arc-x',`${quiet?0:-smooth*.12+mouse*45}px`);
+    works.style.setProperty('--marquee-x',`${quiet?0:(bounds.works.top-ws)*.22-160}px`);
+    bounds.slots.forEach((b,i)=>{const position=(ws+h-b.top)/(h+b.height),appear=ease(position/.55),card=slots[i].firstElementChild;card.style.setProperty('--work-scale',(quiet?1:.86+appear*.14).toFixed(4));card.style.setProperty('--work-y',`${quiet?0:(1-appear)*65}px`);card.style.setProperty('--photo-y',`${quiet?0:clamp((ws+h*.5-b.top-b.height*.5)*.07,-b.height*.06,b.height*.06)}px`);});
+    bounds.rows.forEach((b,i)=>{const p=ease((js+h*.9-b.top)/(h*.65)),row=rows[i];row.style.setProperty('--row-x',`${quiet?0:(1-p)*Number(row.style.getPropertyValue('--entry'))*innerWidth*.21}px`);row.style.setProperty('--row-opacity',String(quiet?1:.15+p*.85));});
+    const c=clamp((cs+h-bounds.cinema.top)/(h+bounds.cinema.height));
+    cinema.style.setProperty('--cinema-scale',(quiet?1:1.28-c*.28).toFixed(4));cinema.style.setProperty('--cinema-y',`${quiet?0:(c-.5)*-120}px`);cinema.style.setProperty('--cinema-radius',`${quiet?35:65*(1-ease((c-.05)/.65))}px`);cinema.style.setProperty('--cinema-copy-y',`${quiet?0:(1-ease((c-.12)/.38))*65}px`);cinema.style.setProperty('--cinema-copy-opacity',String(quiet?1:ease((c-.12)/.38)));
+    const m=clamp((ms+h-bounds.mood.top)/(h+bounds.mood.height));mood.style.setProperty('--mood-y',`${quiet?0:(.5-m)*100}px`);mood.style.setProperty('--mood-angle',`${quiet?0:(1-ease(m/.6))*3}deg`);
+    document.body.dataset.scrollPosition=smooth.toFixed(2);document.body.dataset.motion=reduced.matches?'reduced':'active';
+  }
+  function tick(){raf=0;smooth=target;mouse=pointer;paint();}
+  addEventListener('scroll',()=>{target=scrollY;schedule();},{passive:true});addEventListener('resize',measure,{passive:true});hero.addEventListener('pointermove',e=>{pointer=e.clientX/innerWidth-.5;schedule();},{passive:true});hero.addEventListener('pointerleave',()=>{pointer=0;schedule();});document.addEventListener('visibilitychange',()=>{cancelAnimationFrame(raf);raf=0;if(!document.hidden)schedule();});reduced.addEventListener('change',measure);
+  slots.forEach(slot=>slot.firstElementChild.addEventListener('pointermove',e=>{const card=slot.firstElementChild,r=card.getBoundingClientRect();card.style.setProperty('--hover-x',`${clamp(e.clientX-r.left,60,r.width-60)}px`);card.style.setProperty('--hover-y',`${clamp(e.clientY-r.top,60,r.height-60)}px`);},{passive:true}));
+  const menu=document.getElementById('site-menu'),toggle=document.querySelector('.menu-toggle');let menuReturn=null;
+  function closeMenu(){menu.close();toggle.setAttribute('aria-expanded','false');toggle.focus({preventScroll:true});}
+  toggle.addEventListener('click',()=>{menuReturn=document.activeElement;menu.showModal();toggle.setAttribute('aria-expanded','true');});document.querySelector('.menu-close').addEventListener('click',closeMenu);menu.addEventListener('close',()=>toggle.setAttribute('aria-expanded','false'));menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.close();toggle.setAttribute('aria-expanded','false');}));
+  const items={
+    'gallery-sculpture':{title:'形态的平衡',category:'ART / 艺术',description:'在留白与微妙的平衡中，发现形态的可能。'},
+    'desert-architecture':{title:'光的建筑',category:'ARCHITECTURE / 建筑',description:'暖色的墙面与光影，将建筑变成一幅画。'},
+    'mirror-desert':{title:'镜像之间',category:'LANDSCAPES / 自然',description:'让建筑与山野对话，换一个视角看世界。'},
+    'hd-blue-building':{title:'向上的秩序',category:'ARCHITECTURE / 建筑',description:'建筑的曲线与天空，带来全新的视觉秩序。'},
+    'sharp-portrait':{title:'凝视的力量',category:'PORTRAITS / 人物',description:'清晰的光影与细节，让每一种表达被看见。'},
+    'hd-mountain':{title:'山林的呼吸',category:'NATURE / 自然',description:'山林、湖面与光影，构成自然的灵感。'},
+    'hd-loft':{title:'生活里的诗',category:'INTERIORS / 家居',description:'从光线与生活细节里，收集日常的美感。'},
+    'hd-portrait':{title:'情绪的形状',category:'PORTRAITS / 人物',description:'眼神、衣料与柔和的灰蓝色。让人物的情绪，成为表达的起点。'},
+    'hd-landscape':{title:'山野之间',category:'LANDSCAPES / 自然',description:'群山与湖泊写下自然的配色。在更广阔的画面里，找到新的视角。'},
+    'hd-interior':{title:'理想的日常',category:'INTERIORS / 空间',description:'光线、材质与留白。把喜欢的感觉，放进一个理想的空间。'},
+    'hd-cyber':{title:'未来的切片',category:'CYBER VISIONS / 未来',description:'光轨划过未来的城市。从一种氛围，延伸出一个尚未发生的故事。'}
+  };
+  const dialog=document.getElementById('image-preview'),save=document.getElementById('save-image'),message=dialog.querySelector('.saved-message'),saved=new Set();let current='';
+  document.querySelectorAll('[data-image]').forEach(button=>button.addEventListener('click',()=>{const key=button.dataset.image,item=items[key];if(!item)return;current=key;dialog.querySelector('.preview-image').src=`assets/${key}.jpg`;dialog.querySelector('.preview-image').alt=item.title;document.getElementById('preview-title').textContent=item.title;document.getElementById('preview-category').textContent=item.category;document.getElementById('preview-description').textContent=item.description;save.textContent=saved.has(key)?'已收藏 ✓':'收藏灵感 ＋';message.textContent=saved.has(key)?'已加入本次预览的灵感板。':'';dialog.showModal();}));
+  dialog.querySelector('.close-preview').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{const r=dialog.getBoundingClientRect();if(e.target===dialog&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom))dialog.close();});
+  save.addEventListener('click',()=>{saved.add(current);save.textContent='已收藏 ✓';message.textContent='已加入本次预览的灵感板。';document.querySelector('.saved-count').textContent=`已收藏 ${saved.size} 份灵感`;document.querySelectorAll('.mood-tiles [data-image]').forEach(tile=>tile.classList.toggle('is-saved',saved.has(tile.dataset.image)));});
+  function anchorTarget(hash){try{return document.getElementById(decodeURIComponent(hash.slice(1)));}catch{return null;}}
+  document.addEventListener('click',e=>{const link=e.target.closest('a[href^="#"]');if(!link)return;const hash=link.getAttribute('href'),destination=anchorTarget(hash);if(!destination)return;e.preventDefault();history.pushState(null,'',hash);scrollTo({top:box(destination).top,behavior:reduced.matches?'instant':'smooth'});});
+  function restoreHash(){const destination=anchorTarget(location.hash);if(destination)scrollTo({top:box(destination).top,behavior:'instant'});}
+  addEventListener('hashchange',restoreHash);addEventListener('load',()=>{measure();restoreHash();});
+  measure();document.fonts.ready.then(measure);
+})();

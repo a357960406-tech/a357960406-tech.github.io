@@ -1,0 +1,9 @@
+@import url('v15.css');
+.horizontal-works .work-slot{width:45vw}
+/* One clean image surface, with no glass slab or raised rim. */
+.horizontal-works .work-card{background:transparent;box-shadow:0 22px 55px #0005}
+.horizontal-works .work-card:before,.horizontal-works .work-card:after,.horizontal-works .glass-edge,.horizontal-works .work-gloss{content:none;display:none}
+.horizontal-works .work-image{inset:0;border-radius:var(--card-radius);transform:none;box-shadow:none;will-change:auto}
+.horizontal-works .work-card .work-top,.horizontal-works .work-card .work-bottom{transform:translate3d(calc(var(--label-x,0px) * var(--tilt-strength)),calc(var(--label-y,0px) * var(--tilt-strength)),calc(12px * var(--tilt-strength)))}
+.work-slot:last-child .work-card{box-shadow:none}
+.closing h2{color:#fff}

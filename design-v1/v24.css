@@ -1,0 +1,11 @@
+@import url('v23.css');
+.horizontal-works{height:640svh;min-height:4608px}
+.depth-window{perspective:none;background:#6e4431}
+.depth-photo{inset:0;width:100%;height:100%;object-position:50% 62%;transform:scale(calc(1 + var(--approach,0) * .22));transform-origin:50% 33%;filter:none}
+.depth-canvas{position:absolute;inset:0;display:block;width:100%;height:100%;opacity:0;pointer-events:none}
+.depth-window[data-depth="ready"] .depth-canvas{opacity:1}
+.depth-window[data-depth="ready"] .depth-photo{visibility:hidden}
+.depth-shade{background:linear-gradient(90deg,#160d0638,transparent 62%),linear-gradient(transparent 55%,#1a100b55);z-index:1}
+.depth-coordinates{position:absolute;right:4%;bottom:5%;z-index:2;color:#fff9;font:9px/1.7 'Space Grotesk',monospace;letter-spacing:1.4px;text-align:right;pointer-events:none}
+.horizontal-works .work-slot:last-child .final-copy small{color:#ffe1bc}
+@media(prefers-reduced-motion:reduce){.horizontal-works{height:auto;min-height:0}.depth-canvas{display:none}.depth-photo{transform:none;visibility:visible!important}}

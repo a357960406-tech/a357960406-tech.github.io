@@ -1,0 +1,30 @@
+@import url("v2.css");
+
+.board-grid{align-items:start;transform:translateY(var(--row-shift,0px));transform-style:flat;perspective:none;gap:26px}
+.board{transform:none;transform-style:flat;will-change:auto}
+.board-inner{transform:none;will-change:auto;box-shadow:0 18px 40px #0004,0 0 0 1px #ffffff15;background:#292d26;padding:5px;transition:box-shadow .35s}
+.board:hover .board-inner{transform:none;box-shadow:0 22px 48px #0006,0 0 0 1px #d5fb8260}
+.board-caption{height:84px;display:flex;flex-direction:column;justify-content:center;padding:12px;background:#1a1d19}
+.board-title{line-height:1.45;white-space:nowrap}
+.board-photo img,.board-photo .water-canvas{transition:filter .35s}
+.water-canvas{display:block;position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:1;filter:saturate(.83);opacity:0;transition:opacity .25s,filter .35s}
+.water-canvas.is-ready{opacity:1}
+.orbit-card.is-active .water-canvas{filter:saturate(1.2)}
+.orbit-card-inner:after{z-index:2}
+.image-caption{z-index:3}
+.board-photo .water-canvas{height:116%;top:-8%;transform:translateY(var(--image-y,0px)) scale(1.02);filter:saturate(.85)}
+.board:hover .water-canvas{filter:saturate(1.2)}
+.board-photo:after{z-index:2}
+.card-index,.card-arrow{z-index:3}
+.surface-water{position:absolute;inset:0;z-index:0;width:100%;height:100%;pointer-events:none;opacity:.85}
+.orbit-guides{z-index:1}
+.orbit-field{z-index:3}
+.hero-copy{z-index:5}
+.field-label{z-index:2}
+.wire-cube{z-index:2}
+@media(max-width:1050px){.board-grid{gap:20px}.board-title{font-size:13px}}
+@media(max-width:720px){.board-grid{gap:24px 16px;align-items:start}.board-caption{height:75px;padding:10px 8px}.board-title{font-size:12px;white-space:normal}.board-inner{box-shadow:0 15px 30px #0004,0 0 0 1px #ffffff15;padding:4px}.board:hover .board-inner{box-shadow:0 18px 35px #0005,0 0 0 1px #d5fb8250}.surface-water{opacity:.65}}
+@media(max-width:380px){.board-title{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.board-grid{transform:none}.surface-water{display:none}.water-canvas{display:none}}
+
+.orbit-card-inner>.alternate-water{transform:scale(1.35)}

@@ -1,0 +1,10 @@
+@import url('v20.css');
+.hero-tag{position:relative;top:-14px;padding:10px 0;border:0;border-radius:0;background:none;box-shadow:none;backdrop-filter:none;text-shadow:0 0 18px #ff8cdd24}
+.sound-toggle{position:fixed;right:28px;bottom:100px;z-index:40;display:flex;align-items:center;gap:10px;min-height:38px;padding:10px 14px;border:1px solid #ffffff26;border-radius:99px;background:#070b14b3;backdrop-filter:blur(16px);color:#c5c5cf;font-size:10px;letter-spacing:1px;transition:color .2s,border-color .2s,background .2s}
+.sound-toggle:is(:hover,:focus-visible),.sound-toggle[aria-pressed="true"]{color:var(--neon-accent);border-color:#ff8cdd66;outline-color:var(--neon-accent)}
+.sound-bars{height:12px;display:flex;align-items:center;gap:3px}
+.sound-bars i{display:block;width:2px;height:2px;background:currentColor;border-radius:2px;transition:height .2s}
+.sound-toggle[aria-pressed="true"] .sound-bars i:nth-child(1){height:7px}
+.sound-toggle[aria-pressed="true"] .sound-bars i:nth-child(2){height:12px}
+.sound-toggle[aria-pressed="true"] .sound-bars i:nth-child(3){height:9px}
+.sound-toggle:disabled{opacity:.4;cursor:default}

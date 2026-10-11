@@ -1,0 +1,4 @@
+@import url('v13.css');
+.horizontal-works .work-card{transform:perspective(1500px) rotateX(calc(var(--tilt-x,0deg) * var(--tilt-strength,1))) rotateY(calc(var(--tilt-y,0deg) * var(--tilt-strength,1)));transform-origin:50% 50%;transition:transform .22s cubic-bezier(.2,.7,.25,1);backface-visibility:hidden;will-change:transform}
+.works .work-hover,.cinematic .work-hover{display:none!important}
+@media(prefers-reduced-motion:reduce){.horizontal-works .work-card{transform:none!important;will-change:auto;transition:none}}

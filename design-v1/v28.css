@@ -1,0 +1,3 @@
+@import url('v26.css');
+.hero-content{position:absolute;inset:0 0 auto;height:100svh;padding:0;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:none}
+.hero-content .hero-actions{margin:0 auto}

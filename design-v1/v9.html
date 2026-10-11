@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#050606"><title>Dribbble — 灵感，让想象发生</title>
+  <meta name="description" content="走进 Dribbble 的视觉灵感世界，发现人物、自然、空间与未来的创意表达。">
+  <link rel="stylesheet" href="v9.css">
+</head>
+<body>
+  <canvas class="ambient-water" aria-hidden="true"></canvas>
+  <header class="header"><a class="wordmark" href="#top" aria-label="Dribbble 首页">Dribbble<span>®</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="site-menu">菜单 <span class="menu-icon" aria-hidden="true"><i></i><i></i></span></button></header>
+  <dialog class="menu" id="site-menu" aria-label="页面导航"><button class="menu-close" aria-label="关闭菜单">关闭 ×</button><p class="micro">FOLLOW YOUR CURIOSITY</p><nav><a href="#top">首页 <span>01</span></a><a href="#playground">灵感实验 <span>02</span></a><a href="#works">精选灵感 <span>03</span></a><a href="#journey">创作之旅 <span>03</span></a><a href="#moodboard">我的灵感板 <span>04</span></a></nav><p class="menu-note">每一次好奇，都是新表达的开始。</p></dialog>
+  <main>
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="arc-stage" aria-label="自动流动的视觉灵感，悬停减速"><div class="arc-track">
+        <button class="arc-card ripple-photo" data-image="hd-portrait" aria-label="预览灰蓝色衣装的人像"><img src="assets/hd-portrait.jpg" alt="灰蓝色衣装的人像" decoding="async"><span class="arc-caption">PORTRAITS<small>人物 · 情绪 · 表达</small></span></button>
+        <button class="arc-card ripple-photo" data-image="hd-cyber" aria-label="预览未来城市的光轨"><img src="assets/hd-cyber.jpg" alt="未来城市的光轨" decoding="async"><span class="arc-caption">FUTURE VISIONS<small>赛博 · 光影 · 想象</small></span></button>
+        <button class="arc-card ripple-photo" data-image="hd-landscape" aria-label="预览群山环绕的湖泊"><img src="assets/hd-landscape.jpg" alt="群山环绕的湖泊" decoding="async"><span class="arc-caption">BEYOND THE FRAME<small>自然 · 色彩 · 远方</small></span></button>
+        <button class="arc-card ripple-photo" data-image="hd-blue-building" aria-label="预览蓝天下的现代建筑"><img src="assets/hd-blue-building.jpg" alt="蓝天下的现代建筑" decoding="async"><span class="arc-caption">NEW PERSPECTIVES<small>建筑 · 线条 · 秩序</small></span></button>
+        <button class="arc-card ripple-photo" data-image="sharp-portrait" aria-label="预览清晰的黑白时尚人像"><img src="assets/sharp-portrait.jpg" alt="清晰的黑白时尚人像" decoding="async"><span class="arc-caption">HUMAN EXPRESSION<small>人像 · 光线 · 细节</small></span></button>
+        <button class="arc-card ripple-photo" data-image="hd-mountain" aria-label="预览山脉森林与湖面"><img src="assets/hd-mountain.jpg" alt="山脉森林与湖面" decoding="async"><span class="arc-caption">INTO THE WILD<small>山野 · 光影 · 生长</small></span></button>
+        <button class="arc-card ripple-photo" data-image="hd-interior" aria-label="预览极简生活空间"><img src="assets/hd-interior.jpg" alt="极简生活空间" decoding="async"><span class="arc-caption">LIVING SPACES<small>家居 · 材质 · 留白</small></span></button>
+        <button class="arc-card ripple-photo" data-image="hd-loft" aria-label="预览暖色卧室空间"><img src="assets/hd-loft.jpg" alt="暖色卧室空间" decoding="async"><span class="arc-caption">EVERYDAY POETRY<small>生活 · 质感 · 灵感</small></span></button>
+      </div></div>
+      <div class="hero-content"><p class="hero-tag">INSPIRATION IN MOTION</p><h1 id="hero-title">Dribbble</h1><p class="hero-subtitle">在探索里，遇见灵感。<br><span>让每一个好想法，拥有新的表达。</span></p><span class="hero-divider" aria-hidden="true"></span><div class="hero-actions"><a class="button primary" href="#works">发现灵感 <span>↗</span></a><a class="button glass" href="#moodboard">我的灵感板 <span>↗</span></a></div></div>
+      <div class="hero-bottom micro"><span>DISCOVER. COLLECT. CREATE.</span><a href="#playground">向下探索 <span aria-hidden="true">↓</span></a><span>一个灵感，无限可能</span></div>
+    </section>
+    <section class="blocks-section" id="playground" aria-labelledby="blocks-title">
+      <div class="section-label micro"><h2 id="blocks-title">灵感，重新组合 / REMIX YOUR PERSPECTIVE</h2><span>[ INTERACTIVE STUDY — 01 ]</span></div>
+      <div class="blocks-heading"><h3>每个碎片，<em>都有新可能。</em></h3><p>移动鼠标，拆开画面。<br>让好奇心，重组你的下一份灵感。</p></div>
+      <div class="block-viewport" tabindex="0" role="img" aria-label="由立体积木拼成的山水画面。移动鼠标让附近积木散开，移开恢复。按空格体验，按 Escape 复原。">
+        <div class="block-orbit" aria-hidden="true"></div><div class="block-board" aria-hidden="true"><img class="block-fallback" src="assets/hd-landscape.jpg" alt=""></div>
+        <div class="block-cursor" aria-hidden="true">EXPLORE ↗</div>
+      </div>
+      <div class="block-bottom micro"><span>一个画面 · 无限种表达</span><span>MOVE TO REMIX <span class="tiny-cross">＋</span></span><button class="reset-blocks">重新拼合 ↺</button></div>
+    </section>
+    <section class="works" id="works" aria-labelledby="works-title">
+      <div class="giant-type" aria-hidden="true">Dribbble · inspiration ·</div>
+      <div class="section-label micro"><h2 id="works-title">精选灵感 / SELECTED INSPIRATION</h2><span>[ 01 — 04 ]</span></div>
+      <div class="works-grid">
+        <div class="work-slot"><button class="work-card" data-image="hd-portrait" aria-label="查看情绪的形状"><img src="assets/hd-portrait.jpg" alt="细腻的女性人像摄影" loading="lazy"><span class="work-shade"></span><span class="work-top"><strong>情绪的形状</strong><span>↗</span></span><span class="work-bottom"><span>人物 / PORTRAITS</span><span>01</span></span><span class="work-hover">查看灵感 ↗</span></button></div>
+        <div class="work-slot"><button class="work-card" data-image="hd-landscape" aria-label="查看山野之间"><img src="assets/hd-landscape.jpg" alt="高山、湖泊与自然光线" loading="lazy"><span class="work-shade"></span><span class="work-top"><strong>山野之间</strong><span>↗</span></span><span class="work-bottom"><span>自然 / LANDSCAPES</span><span>02</span></span><span class="work-hover">查看灵感 ↗</span></button></div>
+        <div class="work-slot"><button class="work-card" data-image="hd-interior" aria-label="查看理想的日常"><img src="assets/hd-interior.jpg" alt="极简家居与柔和自然光" loading="lazy"><span class="work-shade"></span><span class="work-top"><strong>理想的日常</strong><span>↗</span></span><span class="work-bottom"><span>空间 / INTERIORS</span><span>03</span></span><span class="work-hover">查看灵感 ↗</span></button></div>
+        <div class="work-slot"><button class="work-card" data-image="hd-cyber" aria-label="查看未来的切片"><img src="assets/hd-cyber.jpg" alt="未来都市中的霓虹光轨" loading="lazy"><span class="work-shade"></span><span class="work-top"><strong>未来的切片</strong><span>↗</span></span><span class="work-bottom"><span>未来 / CYBER VISIONS</span><span>04</span></span><span class="work-hover">查看灵感 ↗</span></button></div>
+      </div>
+      <div class="works-bottom"><p>人物、风景、空间与未来。<br>沿着喜欢的画面，发现自己的创作方向。</p><a class="text-link" href="#moodboard">把喜欢，收进灵感板 <span>↗</span></a></div>
+    </section>
+    <section class="journey" id="journey" aria-labelledby="journey-title">
+      <div class="section-label micro"><h2 id="journey-title">让灵感发生 / YOUR CREATIVE JOURNEY</h2><span>[ 03 ]</span></div>
+      <div class="journey-row" style="--entry:-1"><span class="journey-dot"></span><h3>发现新的视角</h3><span class="journey-en micro">DISCOVER</span></div>
+      <div class="journey-row" style="--entry:1"><span class="journey-dot"></span><h3>收藏心动瞬间</h3><span class="journey-en micro">COLLECT</span></div>
+      <div class="journey-row" style="--entry:-.45"><span class="journey-dot"></span><h3>创造你的表达</h3><span class="journey-en micro">CREATE</span></div>
+    </section>
+    <section class="cinematic" id="expression" aria-labelledby="cinematic-title"><div class="cinematic-frame ripple-photo"><img src="assets/sharp-portrait.jpg" alt="清晰的黑白时尚人像摄影" loading="lazy"><div class="cinematic-shade"></div><div class="cinematic-copy"><p class="micro">FEEL SOMETHING. MAKE SOMETHING.</p><h2 id="cinematic-title">不止看见，<br><em>更被触动。</em></h2><p>汲取灵感，创造新的表达。</p></div><span class="cinematic-credit micro">VISUAL STUDY / LIGHT & EXPRESSION</span></div></section>
+    <section class="moodboard" id="moodboard" aria-labelledby="mood-title"><div class="section-label micro"><h2 id="mood-title">我的灵感板 / YOUR INSPIRATION BOARD</h2><span>[ 04 ]</span></div><div class="mood-layout"><div class="mood-copy"><p class="micro teal">MAKE IT YOURS</p><h3>把心动，<br>连成自己的风格。</h3><p>打开一张画面，收藏一份灵感。<br>下一次创作，从你的喜欢开始。</p><a href="#works" class="button primary">继续发现 <span>↗</span></a></div><div class="mood-panel"><div class="mood-panel-heading"><span>光与想象 / 我的灵感板</span><span class="saved-count" aria-live="polite">4 个灵感示例</span></div><div class="mood-tiles"><button data-image="hd-portrait" aria-label="打开人像灵感"><img src="assets/hd-portrait.jpg" alt="人像灵感" loading="lazy"></button><button data-image="hd-landscape" aria-label="打开自然灵感"><img src="assets/hd-landscape.jpg" alt="自然灵感" loading="lazy"></button><button data-image="hd-interior" aria-label="打开家居灵感"><img src="assets/hd-interior.jpg" alt="家居灵感" loading="lazy"></button><button data-image="hd-cyber" aria-label="打开赛博灵感"><img src="assets/hd-cyber.jpg" alt="赛博灵感" loading="lazy"></button></div><p class="mood-hint">按自己的直觉，连接每一份喜欢。</p></div></div></section>
+    <section class="closing"><p class="micro">YOUR NEXT IDEA STARTS HERE</p><h2>让想象，发生。</h2><a href="#works" class="button primary">开始探索 <span>↗</span></a></section>
+  </main>
+  <footer><a class="footer-wordmark" href="#top">Dribbble<span>®</span></a><div class="footer-bottom micro"><span>为好奇心，留一个位置。</span><a href="#top">回到顶部 ↑</a><a href="assets/v9-credits.md" target="_blank" rel="noreferrer">摄影素材来源 ↗</a></div></footer>
+  <dialog class="image-dialog" id="image-preview" aria-labelledby="preview-title"><button class="close-preview" aria-label="关闭图片预览">×</button><div class="preview-layout"><img class="preview-image" alt=""><div class="preview-info"><p class="micro teal" id="preview-category"></p><h2 id="preview-title"></h2><p id="preview-description"></p><button class="button primary" id="save-image">收藏灵感 ＋</button><p class="saved-message" role="status" aria-live="polite"></p></div></div></dialog>
+  <script src="v9.js"></script><script src="motion9.js"></script><script src="water9.js"></script>
+</body>
+</html>

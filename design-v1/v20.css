@@ -1,0 +1,9 @@
+@import url('v18.css');
+:root{--neon-accent:#ff8cdd}
+.hero-tag{color:var(--neon-accent);border-color:rgb(255 140 221 / .36);background:#050606b3;box-shadow:0 0 30px #ff8cdd12;backdrop-filter:blur(12px)}
+.header-nav a:is(:hover,:focus-visible),.header-right .menu-toggle:is(:hover,:focus-visible){color:var(--neon-accent);outline-color:var(--neon-accent);text-shadow:0 0 18px #ff8cdd33}
+.header-right .menu-toggle{transition:color .2s,text-shadow .2s}
+.menu nav a:is(:hover,:focus-visible),.menu nav a:is(:hover,:focus-visible) span,.menu-close:is(:hover,:focus-visible){color:var(--neon-accent);outline-color:var(--neon-accent)}
+.menu>.micro{color:var(--neon-accent)}
+.depth-photo{object-position:50% 50%}
+.depth-shade{background:linear-gradient(90deg,#05070970,transparent 58%),linear-gradient(transparent 40%,#04060980)}

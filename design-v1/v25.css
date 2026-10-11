@@ -1,0 +1,6 @@
+@import url('v24.css');
+.depth-window{background:#111c2b}
+.depth-photo{object-position:50% 88%;transform-origin:53% 57.5%}
+.depth-shade{background:linear-gradient(90deg,#080d2045,transparent 60%),linear-gradient(transparent 45%,#050b1750)}
+.horizontal-works .work-slot:last-child .final-copy small{color:#c7d5ff}
+.depth-coordinates{color:#c5d7ff9c}

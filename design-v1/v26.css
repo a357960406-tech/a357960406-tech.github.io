@@ -1,0 +1,7 @@
+@import url('v25.css');
+.depth-window{background:#06101b}
+.depth-photo{object-position:50% var(--fallback-focus,61%);transform:scale(calc(1.4 - var(--pullback,0) * .365));transform-origin:50% 55%}
+.depth-shade{background:linear-gradient(90deg,#03081185,transparent 62%),linear-gradient(transparent 50%,#02060d65)}
+.horizontal-works .work-slot:last-child .final-copy small{color:#b5d8ff}
+.depth-coordinates{color:#c7deff9c}
+@media(prefers-reduced-motion:reduce){.depth-photo{transform:none;object-position:50% 64%}}

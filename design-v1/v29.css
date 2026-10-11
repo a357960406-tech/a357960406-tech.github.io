@@ -1,0 +1,13 @@
+@import url('v28.css');
+.arc-stage{clip-path:none;perspective:none;overflow:hidden}
+.arc-stage:before,.arc-stage:after{content:none;display:none}
+.arc-track{top:3svh;height:94svh;left:0;right:0;perspective:none;transform:translate3d(var(--look-x,0px),var(--look-y,0px),0)}
+.arc-card{top:0;left:0;width:25vw;height:100%;background:transparent;border:0;border-radius:0;overflow:visible;box-shadow:none!important;filter:brightness(.76);transform:translate3d(var(--card-x,0px),0,0) scale(var(--card-scale,1)) perspective(1600px) rotateY(var(--card-yaw,0deg));transition:filter .25s}
+.arc-card.is-selected,.arc-card:hover{filter:brightness(1)}
+.arc-card>img{clip-path:var(--panel-outline);border-radius:0}
+.arc-card:has(.water-canvas.is-ready)>img{opacity:0}
+.arc-card .water-canvas{z-index:1;border-radius:0}
+.arc-caption{bottom:calc((1 - var(--curve-height,.54)) * 50% + 28px);font-size:10px;letter-spacing:1.7px;pointer-events:none;z-index:2}
+.arc-caption small{font-size:8px}
+.hero-content:before{top:calc(50svh - 140px);height:280px;left:29%;right:29%;background:radial-gradient(ellipse,#03081288,transparent 73%)}
+@media(prefers-reduced-motion:reduce){.arc-track{transform:none}.arc-card{transform:translate3d(var(--card-x,0px),0,0) perspective(1600px) rotateY(var(--card-yaw,0deg))!important}}
