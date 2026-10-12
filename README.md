@@ -22,6 +22,10 @@ python3 -m http.server 4173 --directory design-v1
 
 `.github/workflows/pages.yml` 保留为手动发布备用，不再与分支自动发布同时触发；手动流程上传同一根目录，保持入口与资源路径一致。
 
+## Skill 介绍页
+
+[落地页设计与迭代 · 功能与使用说明](https://a357960406-tech.github.io/skills/landing-page-iteration/)：介绍功能、项目级安装方法、调用示例，并提供 Skill ZIP 下载。源码位于 `skills/landing-page-iteration/`。
+
 ## 项目级 Skills
 
 - [`landing-page-iteration`](.agents/skills/landing-page-iteration/SKILL.md)：本项目制作过程的复盘，覆盖需求、参考分析、预览迭代、动效调试与发布验证。调用：`$landing-page-iteration`。
