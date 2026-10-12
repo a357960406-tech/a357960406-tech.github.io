@@ -65,12 +65,16 @@ Skill 介绍页：http://localhost:4173/skills/landing-page-iteration/ 。图片
 
 `.github/workflows/pages.yml` 仅保留手动发布备用，上传同一根目录。仓库右侧 About 的描述、Website 和 Topics 需独立配置，不会由 README 或 Pages 部署自动填写。
 
-## 项目级 Skills
+## 六步工作流程
 
-- [`landing-page-iteration`](.agents/skills/landing-page-iteration/SKILL.md)：本项目制作过程的复盘，覆盖需求、参考分析、预览迭代、动效调试与发布验证。调用：`$landing-page-iteration`。
-- [`web-clone-prompt`](.agents/skills/web-clone-prompt/SKILL.md)：根据截图或 URL 生成网页复刻提示词。调用：`$web-clone-prompt`。
+1. **需求对齐**：确认产品、访客目标、区块顺序、设备范围和保留项，得到可核对的需求摘要。
+2. **参考拆解**：观察指定页面的布局、图片比例、悬停与滚动状态，明确触发方式与终止状态。
+3. **首版制作**：实现核心布局和主要交互，使用合适的高清素材，交付实际可运行预览。
+4. **反馈迭代**：以稳定区块名称定位，说明位置、改动与保留项，保留可恢复版本后局部修改。
+5. **实际验收**：检查清晰度、裁切、层级、滚动中间态与终点，以及相关按钮、筛选和下载。
+6. **提交发布**：在明确要求后提交、同步和部署，打开正式网址检查资源与交互，单独设置仓库 About。
 
-`web-clone-prompt` 来自 [xiaopu-ai/web-clone-prompt](https://github.com/xiaopu-ai/web-clone-prompt)，安装版本为 `e943ee25da8d503354619098d4e8c66c8721913b`，保留上游 MIT 许可证。两个 Skill 安装在本项目 `.agents/skills/` 中。
+已有项目从当前有效版本开始；每轮交付改动摘要、预览地址、实际验证结果和已知限制。详见[完整流程](https://a357960406-tech.github.io/skills/landing-page-iteration/#workflow)。
 
 ## 素材与许可
 
