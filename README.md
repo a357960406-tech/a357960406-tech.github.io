@@ -16,7 +16,18 @@ python3 -m http.server 4173 --directory design-v1
 
 ## GitHub Pages
 
-在仓库 **Settings → Pages → Build and deployment** 中选择 **GitHub Actions**。推送到 `main` 后，`.github/workflows/pages.yml` 会自动发布 `design-v1` 目录。所有资源使用相对路径，支持 GitHub Pages 项目网址。
+当前使用仓库 **Settings → Pages → Build and deployment → Deploy from a branch**，来源为 **main / (root)**。更新 `main` 后自动发布；根入口会跳转到 `design-v1/`。
+
+在线访问：https://a357960406-tech.github.io/
+
+`.github/workflows/pages.yml` 保留为手动发布备用，不再与分支自动发布同时触发；手动流程上传同一根目录，保持入口与资源路径一致。
+
+## 项目级 Skills
+
+- [`landing-page-iteration`](.agents/skills/landing-page-iteration/SKILL.md)：本项目制作过程的复盘，覆盖需求、参考分析、预览迭代、动效调试与发布验证。调用：`$landing-page-iteration`。
+- [`web-clone-prompt`](.agents/skills/web-clone-prompt/SKILL.md)：根据截图或 URL 生成网页复刻提示词。调用：`$web-clone-prompt`。
+
+`web-clone-prompt` 来自 [xiaopu-ai/web-clone-prompt](https://github.com/xiaopu-ai/web-clone-prompt)，安装版本为 `e943ee25da8d503354619098d4e8c66c8721913b`，保留上游 MIT 许可证。两个 Skill 安装在本项目 `.agents/skills/` 中。
 
 ## 素材与许可
 

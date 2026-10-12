@@ -1,0 +1,4 @@
+interface:
+  display_name: "落地页设计与迭代"
+  short_description: "从参考分析到可预览页面，复用动效调试、版本迭代与发布验证流程"
+  default_prompt: "使用 $landing-page-iteration，基于当前项目和我的要求制作或迭代落地页，验证后给出可预览链接。"

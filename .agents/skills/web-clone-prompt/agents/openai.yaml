@@ -1,0 +1,4 @@
+interface:
+  display_name: "Web Clone Prompt"
+  short_description: "Authorized clone prompts with screenshot and URL regression gates"
+  default_prompt: "Use $web-clone-prompt to turn this authorized screenshot or URL into a precise clone prompt, keep usage scope explicit, then ask before local build and URL regression."
